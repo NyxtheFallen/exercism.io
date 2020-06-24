@@ -1,13 +1,11 @@
-// This is a "stub" file.  It's a little start on your solution.
-// It's not a complete solution though; you have to write some code.
-
-// Package bob should have a package comment that summarizes what it's about.
-// https://golang.org/doc/effective_go.html#commentary
+/*
+Package bob is just a silly response generator.
+*/
 package bob
 
 import "strings"
 
-// Hey should have a comment documenting it.
+// Hey generates a limited number of responses based on an input remark.
 func Hey(remark string) string {
 	remark = strings.TrimSpace(remark)
 	isYelling := strings.ToUpper(remark) == remark && strings.ToLower(remark) != remark //filter for numerics
