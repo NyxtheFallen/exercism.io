@@ -9,13 +9,14 @@ import (
 func IsIsogram(word string) bool {
 	letterCounts := make(map[rune]bool)
 	for _, val := range word {
-		if unicode.IsLetter(val) {
-			lowerVal := unicode.ToLower(val)
-			if letterCounts[lowerVal] {
-				return false
-			}
-			letterCounts[lowerVal] = true
+		if !unicode.IsLetter(val) {
+			continue
 		}
+		lowerVal := unicode.ToLower(val)
+		if letterCounts[lowerVal] {
+			return false
+		}
+		letterCounts[lowerVal] = true
 	}
 	return true
 }
