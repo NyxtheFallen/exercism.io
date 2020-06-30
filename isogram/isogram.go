@@ -7,15 +7,14 @@ import (
 
 //IsIsogram yields a boolian value indicating whether a word is an isogram.
 func IsIsogram(word string) bool {
-	letters := []rune(word)
-	letterCounts := make(map[rune]int)
-	for _, val := range letters {
+	letterCounts := make(map[rune]bool)
+	for _, val := range word {
 		if unicode.IsLetter(val) {
 			lowerVal := unicode.ToLower(val)
-			letterCounts[lowerVal]++
-			if letterCounts[lowerVal] > 1 {
+			if letterCounts[lowerVal] {
 				return false
 			}
+			letterCounts[lowerVal] = true
 		}
 	}
 	return true
